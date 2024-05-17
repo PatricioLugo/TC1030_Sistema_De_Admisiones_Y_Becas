@@ -1,2 +1,8 @@
-# Sistema_De_Admisiones_Y_Becas
+# Sistema De Admisiones Y Becas
+Este proyecto consiste en un sistema de admisiones y becas para una institución educativa, donde se trabaja con tres tipos de posibles prospectos dependiendo del nivel de educación al que quiera acceder el prospecto (preparatoria, profesional y posgrado) y se establece de acuerdo a sus resultados en un examen de admisión su estado de admisión, así como su posibilidad a solicitar una beca.
 
+## Posibles errores
+El proyecto puede ser susceptible a errores cuando haya incoherencias entre los tipos de datos que introduzca el usuario y el tipo de datos que requiere el proyecto. Además, puede que haya instituciones educativas que soliciten una mayor cantidad de requisitos de admisión que los incluidos en el proyecto, por lo que para asegurar su funcionamiento habría que ampliar la complejidad del proyecto de acuerdo a las necesidades específicas de la institución.
+
+## Diagrama UML
+El diagrama de clases del proyecto consta de 5 clases: Admisiones, Prospecto, ProspectoProfesional, ProspectoPreparatoria, ProspectoPosgrado. Estas últimas 3 son subclases de la clase Prospecto, por lo que tienen los atributos base de prospecto, pero a su vez tienen atributos propios de cada subclase y sus métodos (beca(), estado_de_admision() y to_string()) involucran procesos diferentes de cálculo y de impresión respectivamente. Estas diferencias en los métodos se deben a que los prospectos de diferentes niveles de educación requieren un puntaje diferente en su examen de admisión para recibir una respuesta positiva de parte de la institución educativa tanto para la admisión misma como para la posibilidad de ser acredores a una beca. La clase de Prospecto tiene una relación de composición con la clase Admisiones; éste es el departamento donde se realizan todas las operaciones sobre los prospectos a estudiar en la institución, además de que se guarda la información de los prospectos existentes.
