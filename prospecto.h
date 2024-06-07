@@ -31,8 +31,9 @@ class Prospecto{
     // Declaración de métodos
     public:
         Prospecto(): nombre(""), id(0), tipo_prospecto(""), puntaje_examen(0), promedio(0) {}
-        Prospecto(string nombre_, int id_, string tipo_prospecto_): nombre(nombre_), id(id_),
-        tipo_prospecto(tipo_prospecto_), puntaje_examen(0), promedio(0) {};
+        Prospecto(string nombre_, int id_, string tipo_prospecto_, double puntaje_examen_,
+        double promedio_): nombre(nombre_), id(id_), tipo_prospecto(tipo_prospecto_),
+        puntaje_examen(puntaje_examen_), promedio(promedio_) {};
         virtual bool beca() = 0;               // Método abstracto que será sobreescrito
         virtual bool estado_de_admision() = 0; // Método abstracto que será sobreescrito
         virtual string to_string() = 0;        // Método abstracto que será sobreescrito
@@ -74,8 +75,9 @@ class ProspectoProfesional: public Prospecto{
     // Declaración de métodos   
     public:
         ProspectoProfesional(): Prospecto(), avenida("") {};
-        ProspectoProfesional(string nombre_, int id_, string tipo_prospecto_, string avenida_):
-        Prospecto(nombre_, id_, tipo_prospecto_), avenida(avenida_) {};
+        ProspectoProfesional(string nombre_, int id_, string tipo_prospecto_, double puntaje_examen_,
+        double promedio_, string avenida_):
+        Prospecto(nombre_, id_, tipo_prospecto_,puntaje_examen_, promedio_ ), avenida(avenida_) {};
         bool beca();
         bool estado_de_admision();
         string to_string();
@@ -141,7 +143,9 @@ class ProspectoPreparatoria: public Prospecto{
     // Declaración de métodos
     public:
         ProspectoPreparatoria(): Prospecto(), programa("") {};
-        ProspectoPreparatoria(string nombre_, int id_, string tipo_prospecto_, string programa_):Prospecto(nombre_, id_, tipo_prospecto_), programa(programa_) {};
+        ProspectoPreparatoria(string nombre_, int id_, string tipo_prospecto_, double puntaje_examen_,
+        double promedio_, string programa_):Prospecto(nombre_, id_, tipo_prospecto_, puntaje_examen_,
+        promedio_), programa(programa_) {};
         bool beca();
         bool estado_de_admision();
         string to_string();
@@ -207,7 +211,9 @@ class ProspectoPosgrado: public Prospecto{
     // Declaración de métodos
     public:
         ProspectoPosgrado(): Prospecto(), tipo_posgrado("") {};
-        ProspectoPosgrado(string nombre_, int id_, string tipo_prospecto_, string tipo_posgrado_):Prospecto(nombre_, id_, tipo_prospecto_), tipo_posgrado(tipo_posgrado_) {};
+        ProspectoPosgrado(string nombre_, int id_, string tipo_prospecto_, double puntaje_examen_,
+        double promedio_, string tipo_posgrado_):Prospecto(nombre_, id_, tipo_prospecto_, puntaje_examen_,
+        promedio_), tipo_posgrado(tipo_posgrado_) {};
         bool beca();
         bool estado_de_admision();
         string to_string();

@@ -35,14 +35,19 @@ class Admisiones{
 
         Admisiones(): num_prosp(0) {};
 
-        void crear_prospecto();
+        void crear_prospectos_ejemplo();
         void mostrar_prospectos();
         void mostrar_prospectos(string tipo_prospecto);
         void mostrar_prospectos_admitidos();
         void mostrar_prospectos_admitidos(string tipo_prospecto);
-        void agregar_prospecto_profesional(string nombre, int id, string tipo_prospecto, string avenida);
-        void agregar_prospecto_preparatoria(string nombre, int id, string tipo_prospecto, string programa);
-        void agregar_prospecto_posgrado(string nombre, int id, string tipo_prospecto, string tipo_posgrado);
+        void mostrar_prospectos_beca();
+        void mostrar_prospectos_beca(string tipo_prospecto);
+        void agregar_prospecto_profesional(string nombre, int id, string tipo_prospecto,
+                                           double puntaje_examen, double promedio, string avenida);
+        void agregar_prospecto_preparatoria(string nombre, int id, string tipo_prospecto,
+                                            double puntaje_examen, double promedio, string programa);
+        void agregar_prospecto_posgrado(string nombre, int id, string tipo_prospecto,
+                                            double puntaje_examen, double promedio,string tipo_posgrado);
 };
 
 /**
@@ -55,18 +60,18 @@ class Admisiones{
  * @return
  */
 
-void Admisiones::crear_prospecto(){
+void Admisiones::crear_prospectos_ejemplo(){
 
     // Para poder usar polimorfismo, new crea los objetos de ejemplo en tiempo de ejecución
-    prosp[num_prosp] = new ProspectoProfesional("Juan Pérez", 100, "Profesional", "Negocios y Finanzas");
+    prosp[num_prosp] = new ProspectoProfesional("Juan Pérez", 100, "Profesional", 1200, 89, "Negocios y Finanzas");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoProfesional("Matilda Sánchez", 101, "Profesional", "Ciencias Aplicadas");
+    prosp[num_prosp] = new ProspectoProfesional("Matilda Sánchez", 101, "Profesional", 1400, 95, "Ciencias Aplicadas");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoPreparatoria("María José Romero", 10, "Preparatoria", "Bicultural");
+    prosp[num_prosp] = new ProspectoPreparatoria("María José Romero", 10, "Preparatoria", 1150, 91, "Bicultural");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoProfesional("Juan Pablo Robles", 102, "Profesional", "Estudios Creativos");
+    prosp[num_prosp] = new ProspectoProfesional("Juan Pablo Robles", 102, "Profesional", 900, 91, "Estudios Creativos");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoPosgrado("Daniela Martínez", 1000, "Posgrado", "Maestría");
+    prosp[num_prosp] = new ProspectoPosgrado("Daniela Martínez", 1000, "Posgrado", 1560, 98, "Maestría");
     num_prosp++;
 }
 
@@ -160,16 +165,43 @@ void Admisiones::mostrar_prospectos_admitidos(string tipo_prospecto){
     }
 }
 
-void Admisiones::agregar_prospecto_profesional(string nombre, int id, string tipo_prospecto, string avenida){
-
+void Admisiones::mostrar_prospectos_beca(){
+    for (int i = 0; i< num_prosp; i++){
+        if (prosp[i] -> beca() == true){
+            cout << prosp[i] -> to_string();
+        }
+        else{
+            continue;
+        }
+    }
 }
 
-void Admisiones::agregar_prospecto_preparatoria(string nombre, int id, string tipo_prospecto, string programa){
-
+void Admisiones::mostrar_prospectos_beca(string tipo_prospecto){
+    for (int i = 0; i < num_prosp; i++){
+        if (tipo_prospecto == prosp[i] -> getTipoProspecto()){
+            if (prosp[i] -> beca() == true){
+                cout << prosp[i] -> to_string();
+            }
+        }
+    }
 }
 
-void Admisiones::agregar_prospecto_posgrado(string nombre, int id, string tipo_prospecto, string tipo_posgrado){
+void Admisiones::agregar_prospecto_profesional(string nombre, int id, string tipo_prospecto,
+                                               double puntaje_examen, double promedio, string avenida){
+    prosp[num_prosp] = new ProspectoProfesional(nombre, id, tipo_prospecto, puntaje_examen, promedio, avenida);
+    num_prosp++;
+}
 
+void Admisiones::agregar_prospecto_preparatoria(string nombre, int id, string tipo_prospecto,
+                                                double puntaje_examen, double promedio, string programa){
+    prosp[num_prosp] = new ProspectoPreparatoria(nombre, id, tipo_prospecto, puntaje_examen, promedio, programa);
+    num_prosp++;
+}
+
+void Admisiones::agregar_prospecto_posgrado(string nombre, int id, string tipo_prospecto,
+                                            double puntaje_examen, double promedio, string tipo_posgrado){
+    prosp[num_prosp] = new ProspectoPosgrado(nombre, id, tipo_prospecto, puntaje_examen, promedio, tipo_posgrado);
+    num_prosp++;                                            
 }
 
 #endif //ADMISIONES_H_
