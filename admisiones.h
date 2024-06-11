@@ -63,15 +63,15 @@ class Admisiones{
 void Admisiones::crear_prospectos_ejemplo(){
 
     // Para poder usar polimorfismo, new crea los objetos de ejemplo en tiempo de ejecución
-    prosp[num_prosp] = new ProspectoProfesional("Juan Pérez", 100, "Profesional", 1200, 89, "Negocios y Finanzas");
+    prosp[num_prosp] = new ProspectoProfesional("Juan Perez", 100, "Profesional", 1200, 89, "Negocios y Finanzas");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoProfesional("Matilda Sánchez", 101, "Profesional", 1400, 95, "Ciencias Aplicadas");
+    prosp[num_prosp] = new ProspectoProfesional("Matilda Sanchez", 101, "Profesional", 1400, 95, "Ciencias Aplicadas");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoPreparatoria("María José Romero", 10, "Preparatoria", 1150, 91, "Bicultural");
+    prosp[num_prosp] = new ProspectoPreparatoria("Maria Jose Romero", 10, "Preparatoria", 1150, 91, "Bicultural");
     num_prosp++;
     prosp[num_prosp] = new ProspectoProfesional("Juan Pablo Robles", 102, "Profesional", 900, 91, "Estudios Creativos");
     num_prosp++;
-    prosp[num_prosp] = new ProspectoPosgrado("Daniela Martínez", 1000, "Posgrado", 1560, 98, "Maestría");
+    prosp[num_prosp] = new ProspectoPosgrado("Daniela Martinez", 1000, "Posgrado", 1560, 98, "Maestria");
     num_prosp++;
 }
 
@@ -165,6 +165,17 @@ void Admisiones::mostrar_prospectos_admitidos(string tipo_prospecto){
     }
 }
 
+/**
+ * mostrar_prospectos_beca imprime los prospectos del arreglo prosp[]
+ * que estén en posibilidades de adquirir una beca
+ *
+ * Utilizando un ciclo for imprime el resultado del método to_string de cada prospecto con la
+ * condicion de que su método beca dé como resultado verdadero.
+ * 
+ * @param
+ * @return
+ */
+
 void Admisiones::mostrar_prospectos_beca(){
     for (int i = 0; i< num_prosp; i++){
         if (prosp[i] -> beca() == true){
@@ -176,6 +187,19 @@ void Admisiones::mostrar_prospectos_beca(){
     }
 }
 
+/**
+ * mostrar_prospectos_beca imprime los prospectos del arreglo prosp[]
+ * que estén en posibilidades de adquirir una beca y que coinciden con el tipo de prospecto
+ * ingresado
+ *
+ * Utilizando un ciclo for imprime el resultado del método to_string de cada prospecto con las
+ * condiciones de que el prospecto sea del tipo solicitado y de que su método beca dé como
+ * resultado verdadero.
+ * 
+ * @param string tipo_prospecto: debe ser 'Profesional', 'Preparatoria' o 'Posgrado'
+ * @return
+ */
+
 void Admisiones::mostrar_prospectos_beca(string tipo_prospecto){
     for (int i = 0; i < num_prosp; i++){
         if (tipo_prospecto == prosp[i] -> getTipoProspecto()){
@@ -186,17 +210,53 @@ void Admisiones::mostrar_prospectos_beca(string tipo_prospecto){
     }
 }
 
+/**
+ * agregar_prospecto_profesional crea un objeto de tipo de la clase
+ * ProspectoProfesional y posteriormente lo agrega al arreglo de prospectos
+ *
+ * Crea un objeto ProspectoProfesional y lo añade al arreglo de prospectos
+ * usando como índice el contador num_prosp y luego le suma 1 al índice.
+ *
+ * @param string nombre, int id, string tipo_prospecto, double puntaje_examen,
+ * double promedio y string avenida.
+ * @return
+ */
+
 void Admisiones::agregar_prospecto_profesional(string nombre, int id, string tipo_prospecto,
                                                double puntaje_examen, double promedio, string avenida){
     prosp[num_prosp] = new ProspectoProfesional(nombre, id, tipo_prospecto, puntaje_examen, promedio, avenida);
     num_prosp++;
 }
 
+/**
+ * agregar_prospecto_preparatoria crea un objeto de tipo de la clase
+ * ProspectoPreparatoria y posteriormente lo agrega al arreglo de prospectos
+ *
+ * Crea un objeto ProspectoPreparatoria y lo añade al arreglo de prospectos
+ * usando como índice el contador num_prosp y luego le suma 1 al índice.
+ *
+ * @param string nombre, int id, string tipo_prospecto, double puntaje_examen,
+ * double promedio y string programa.
+ * @return
+ */
+
 void Admisiones::agregar_prospecto_preparatoria(string nombre, int id, string tipo_prospecto,
                                                 double puntaje_examen, double promedio, string programa){
     prosp[num_prosp] = new ProspectoPreparatoria(nombre, id, tipo_prospecto, puntaje_examen, promedio, programa);
     num_prosp++;
 }
+
+/**
+ * agregar_prospecto_posgrado crea un objeto de tipo de la clase
+ * ProspectoPosgrado y posteriormente lo agrega al arreglo de prospectos
+ *
+ * Crea un objeto ProspectoPosgrado y lo añade al arreglo de prospectos
+ * usando como índice el contador num_prosp y luego le suma 1 al índice.
+ *
+ * @param string nombre, int id, string tipo_prospecto, double puntaje_examen,
+ * double promedio y string tipo_posgrado.
+ * @return
+ */
 
 void Admisiones::agregar_prospecto_posgrado(string nombre, int id, string tipo_prospecto,
                                             double puntaje_examen, double promedio, string tipo_posgrado){

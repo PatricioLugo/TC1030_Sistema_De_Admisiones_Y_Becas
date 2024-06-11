@@ -129,7 +129,7 @@ bool ProspectoProfesional::estado_de_admision(){
 string ProspectoProfesional::to_string(){
     stringstream aux;
     aux << "Nombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nAvenida: " 
-    << avenida << "\nPuntaje Examen de Admisión: " << puntaje_examen << "\nPromedio: " << promedio;
+    << avenida << "\nPuntaje Examen de Admision: " << puntaje_examen << "\nPromedio: " << promedio;
     return aux.str();
 }
 
@@ -197,7 +197,7 @@ bool ProspectoPreparatoria::estado_de_admision(){
 string ProspectoPreparatoria::to_string(){
     stringstream aux;
     aux << "Nombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nPrograma: " 
-    << programa << "\nPuntaje Examen de Admisión: " << puntaje_examen << "\nPromedio: " << promedio;
+    << programa << "\nPuntaje Examen de Admision: " << puntaje_examen << "\nPromedio: " << promedio;
     return aux.str();
 }
 
@@ -265,7 +265,7 @@ bool ProspectoPosgrado:: estado_de_admision(){
 string ProspectoPosgrado::to_string(){
     stringstream aux;
     aux << "Nombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nPosgrado: " 
-    << tipo_posgrado << "\nPuntaje Examen de Admisión: " << puntaje_examen << "\nPromedio: " << promedio;
+    << tipo_posgrado << "\nPuntaje Examen de Admision: " << puntaje_examen << "\nPromedio: " << promedio;
     return aux.str();
 }
 
