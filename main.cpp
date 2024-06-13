@@ -24,45 +24,52 @@
 
 using namespace std;
 
+Admisiones admisiones;
+
 int main(){
     bool continuar = true;
+    int opcion;
     while (continuar == true){
-        int opcion;
         cout << "ELIGE UNA OPCION (1/2/3/4): \n\n" <<
         "1. Ver ejemplo \n" <<
         "2. Añadir prospecto\n" <<
         "3. Ver prospectos\n" <<
         "4. Ver prospectos admitidos\n" <<
         "5. Ver prospectos con beca\n" <<
-        "6. Salir\n";
+        "6. Salir\n" << endl;
         cin >> opcion;
-        Admisiones admisiones;
         if (opcion == 1){
             admisiones.crear_prospectos_ejemplo();
             admisiones.mostrar_prospectos();
             admisiones.mostrar_prospectos("Profesional");
         }
         else if (opcion == 2){
+            cout << "Ingrese el nombre del prospecto " << endl;
+            cin.ignore();
             string nombre;
+            getline(cin, nombre);
+            cout << endl;
+            cout << "Ingrese la id del prospecto:" << endl;
             int id;
-            string tipo_prospecto;
-            double puntaje_examen;
-            double promedio;
-
-            cout << "Ingrese el nombre del prospecto ";
-            cin >> nombre;
-            cout << "Ingrese la id del prospecto: ";
             cin >> id;
-            cout << "Ingrese el tipo de prospecto (Profesional/Preparatoria/Posgrado): ";
+            cout << endl;
+            cout << "Ingrese el tipo de prospecto (Profesional/Preparatoria/Posgrado):" << endl;
+            string tipo_prospecto;
             cin >> tipo_prospecto;
-            cout << "Ingrese el puntaje del examen de admision del prospecto: ";
+            cout << endl;
+            cout << "Ingrese el puntaje del examen de admision del prospecto:" << endl;
+            double puntaje_examen;
             cin >> puntaje_examen;
-            cout << "Ingrese el promedio del prospecto: ";
+            cout << endl;
+            cout << "Ingrese el promedio del prospecto:" << endl;
+            double promedio;
             cin >> promedio;
+            cout << endl;
             if (tipo_prospecto == "Profesional"){
                 string avenida;
                 cout << "Ingrese la avenida del prospecto: ";
-                cin >> avenida;
+                cin.ignore();
+                getline(cin, avenida);
                 admisiones.agregar_prospecto_profesional(nombre, id, tipo_prospecto,
                                                         puntaje_examen, promedio, avenida);
             }
@@ -152,9 +159,5 @@ int main(){
             cout << "\nOPCION INVALIDA";
         }
     }
-    Admisiones admisiones;
-    admisiones.crear_prospectos_ejemplo();
-    admisiones.mostrar_prospectos();
-    admisiones.mostrar_prospectos("Profesional");
     return 0;
 };
