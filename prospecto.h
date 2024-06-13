@@ -55,10 +55,10 @@ class Prospecto{
         void setTipoProspecto(string tipo_prospecto_){
             tipo_prospecto = tipo_prospecto_;
         }
-        void set_puntaje(double puntaje_){
+        void setPuntaje(double puntaje_){
             puntaje_examen = puntaje_;
         }
-        void set_promedio(double promedio_){
+        void setPromedio(double promedio_){
             promedio = promedio_;
         }
 
@@ -81,6 +81,14 @@ class ProspectoProfesional: public Prospecto{
         bool beca();
         bool estado_de_admision();
         string to_string();
+
+        //Getters
+        string getAvenida(){return avenida;}
+
+        //Setters
+        void setAvenida(string avenida_){
+            avenida = avenida_;
+        }
 };
 
 /**
@@ -149,6 +157,14 @@ class ProspectoPreparatoria: public Prospecto{
         bool beca();
         bool estado_de_admision();
         string to_string();
+
+        //Getters
+        string getPrograma(){return programa;}
+        
+        //Setters
+        void getPrograma(string programa_){
+            programa = programa_;
+        }
 };
 
 /**
@@ -217,6 +233,14 @@ class ProspectoPosgrado: public Prospecto{
         bool beca();
         bool estado_de_admision();
         string to_string();
+
+        //Getters
+        string getTipoPosgrado(){return tipo_posgrado;}
+
+        //Setters
+        void setTipoPosgrado(string tipo_posgrado_){
+            tipo_posgrado = tipo_posgrado_;
+        }
 };
 
 /**
