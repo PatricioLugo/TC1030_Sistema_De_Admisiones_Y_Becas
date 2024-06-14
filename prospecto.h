@@ -12,8 +12,8 @@
 #ifndef PROSPECTO_H_
 #define PROSPECTO_H_
 
-#include <bits/stdc++.h>
-#include <iostream>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -136,7 +136,7 @@ bool ProspectoProfesional::estado_de_admision(){
 
 string ProspectoProfesional::to_string(){
     stringstream aux;
-    aux << "Nombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nAvenida: " 
+    aux << "\n\nNombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nAvenida: " 
     << avenida << "\nPuntaje Examen de Admision: " << puntaje_examen << "\nPromedio: " << promedio;
     return aux.str();
 }
@@ -212,7 +212,7 @@ bool ProspectoPreparatoria::estado_de_admision(){
 
 string ProspectoPreparatoria::to_string(){
     stringstream aux;
-    aux << "Nombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nPrograma: " 
+    aux << "\n\nNombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nPrograma: " 
     << programa << "\nPuntaje Examen de Admision: " << puntaje_examen << "\nPromedio: " << promedio;
     return aux.str();
 }
@@ -288,7 +288,7 @@ bool ProspectoPosgrado:: estado_de_admision(){
 
 string ProspectoPosgrado::to_string(){
     stringstream aux;
-    aux << "Nombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nPosgrado: " 
+    aux << "\n\nNombre: " << nombre << "\nID: " << id << "\nTipo: " << tipo_prospecto << "\nPosgrado: " 
     << tipo_posgrado << "\nPuntaje Examen de Admision: " << puntaje_examen << "\nPromedio: " << promedio;
     return aux.str();
 }

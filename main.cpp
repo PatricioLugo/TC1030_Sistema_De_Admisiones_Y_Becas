@@ -13,8 +13,7 @@
 * beca.
 */
 
-#include <bits/stdc++.h> // Biblioteca que incluye la mayoría del contenido
-                         // de las bibliotecas estándar de c++
+#include <string>
 #include <iostream> // Biblioteca que incluye operadores de entrada y salida
 
 #include "prospecto.h" // Biblioteca con los objetos a usar de la clase Prospecto
@@ -30,7 +29,7 @@ int main(){
     bool continuar = true;
     int opcion;
     while (continuar == true){
-        cout << "ELIGE UNA OPCION (1/2/3/4): \n\n" <<
+        cout << "\nELIGE UNA OPCION (1/2/3/4): \n\n" <<
         "1. Ver ejemplo \n" <<
         "2. Añadir prospecto\n" <<
         "3. Ver prospectos\n" <<
@@ -49,10 +48,7 @@ int main(){
             string nombre;
             getline(cin, nombre);
             cout << endl;
-            cout << "Ingrese la id del prospecto:" << endl;
-            int id;
-            cin >> id;
-            cout << endl;
+            int id = 0;
             cout << "Ingrese el tipo de prospecto (Profesional/Preparatoria/Posgrado):" << endl;
             string tipo_prospecto;
             cin >> tipo_prospecto;
@@ -89,8 +85,9 @@ int main(){
             }
         }
         else if (opcion == 3){
-            cout << "\nIngrese el tipo de prospecto de los que quiere ver la informacion (1/2/3/4)\n";
-            cout << "1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
+            cout << "\nIngrese el tipo de prospecto de los que quiere" <<
+            "ver la informacion (1/2/3/4)\n";
+            cout << "\n1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
             int opcion2;
             cin >> opcion2;
             if (opcion2 == 1){
@@ -106,12 +103,12 @@ int main(){
                 admisiones.mostrar_prospectos();
             }
             else{
-                cout << "OPCION INVALIDA";
+                cout << "\n\nOPCION INVALIDA\n";
             }
         }
         else if (opcion == 4){
             cout << "\nIngrese el tipo de prospecto de los que quiere ver la informacion (1/2/3/4)\n";
-            cout << "1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
+            cout << "\n1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
             int opcion2;
             cin >> opcion2;
             if (opcion2 == 1){
@@ -127,12 +124,12 @@ int main(){
                 admisiones.mostrar_prospectos_admitidos();
             }
             else{
-                cout << "OPCION INVALIDA";
+                cout << "\n\nOPCION INVALIDA\n";
             }
         }
         else if (opcion == 5){
             cout << "\nIngrese el tipo de prospecto de los que quiere ver la informacion (1/2/3/4)\n";
-            cout << "1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
+            cout << "\n1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
             int opcion2;
             cin >> opcion2;
             if (opcion2 == 1){
@@ -148,7 +145,7 @@ int main(){
                 admisiones.mostrar_prospectos_beca();
             }
             else{
-                cout << "OPCION INVALIDA";
+                cout << "\n\nOPCION INVALIDA\n";
             }
         }
         else if (opcion == 6){
@@ -156,7 +153,7 @@ int main(){
             continuar = false;
         }
         else{
-            cout << "\nOPCION INVALIDA";
+            cout << "\n\nOPCION INVALIDA\n";
         }
     }
     return 0;

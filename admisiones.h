@@ -13,8 +13,9 @@
 #ifndef ADMISIONES_H_
 #define ADMISIONES_H_
 
-#include <bits/stdc++.h>
+#include <string>
 #include <iostream>
+#include <sstream>
 
 #include "prospecto.h" // Biblioteca con las clases a usar
 
@@ -224,7 +225,7 @@ void Admisiones::mostrar_prospectos_beca(string tipo_prospecto){
 
 void Admisiones::agregar_prospecto_profesional(string nombre, int id, string tipo_prospecto,
                                                double puntaje_examen, double promedio, string avenida){
-    prosp[num_prosp] = new ProspectoProfesional(nombre, id, tipo_prospecto, puntaje_examen, promedio, avenida);
+    prosp[num_prosp] = new ProspectoProfesional(nombre, num_prosp, tipo_prospecto, puntaje_examen, promedio, avenida);
     num_prosp++;
 }
 
@@ -242,7 +243,7 @@ void Admisiones::agregar_prospecto_profesional(string nombre, int id, string tip
 
 void Admisiones::agregar_prospecto_preparatoria(string nombre, int id, string tipo_prospecto,
                                                 double puntaje_examen, double promedio, string programa){
-    prosp[num_prosp] = new ProspectoPreparatoria(nombre, id, tipo_prospecto, puntaje_examen, promedio, programa);
+    prosp[num_prosp] = new ProspectoPreparatoria(nombre, num_prosp, tipo_prospecto, puntaje_examen, promedio, programa);
     num_prosp++;
 }
 
@@ -260,7 +261,7 @@ void Admisiones::agregar_prospecto_preparatoria(string nombre, int id, string ti
 
 void Admisiones::agregar_prospecto_posgrado(string nombre, int id, string tipo_prospecto,
                                             double puntaje_examen, double promedio, string tipo_posgrado){
-    prosp[num_prosp] = new ProspectoPosgrado(nombre, id, tipo_prospecto, puntaje_examen, promedio, tipo_posgrado);
+    prosp[num_prosp] = new ProspectoPosgrado(nombre, num_prosp, tipo_prospecto, puntaje_examen, promedio, tipo_posgrado);
     num_prosp++;                                            
 }
 
