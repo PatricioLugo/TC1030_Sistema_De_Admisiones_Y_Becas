@@ -25,3 +25,17 @@ NOTA: La versión del main aún era muy simple.
 * Se creó una versión completa del main donde se despliega un menu y el usuario puede ver un ejemplo del programa sin necesidad de agregar prospectos el mismo o puede realizar las funciones del programa manualmente (agregar prospectos de disintos tipos y ver su información según las limitantes que decida el usuario).
 ### Versión 5
 * Se corrigió un error del programa donde al introducir los nombres de los prospectos el programa entraba en un loop infinito; el problema fue solucionado con getline().
+
+## Consideraciones
+Compilar de la siguiente manera tras acceder a la carpeta correspondiente:
+* "g++ main.cpp admisiones.h prospecto.h"
+
+Correr el código:
+* Windows: .\a.exe
+* Linux: ./a.out
+
+### Referencias
+Para getline() e cin.ignore():
+  stackoverflow (2018): https://es.stackoverflow.com/questions/193829/porque-es-necesario-usar-el-comando-cin-ignore-despu%c3%a9s-de-usar-cin-y-lue
+Para la implementación del método to_string():
+  benjaminva(2021): https://github.com/benjaminva/TC1030_Proyecto_Demo/blob/master/empleado.h
