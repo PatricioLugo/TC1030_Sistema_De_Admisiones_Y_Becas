@@ -13,7 +13,9 @@
 * beca.
 */
 
-#include <string>
+#include <string>   // Biblioteca que permite el uso y manipulación
+                    //de cadenas de caracteres
+
 #include <iostream> // Biblioteca que incluye operadores de entrada y salida
 
 #include "prospecto.h" // Biblioteca con los objetos a usar de la clase Prospecto
@@ -23,12 +25,14 @@
 
 using namespace std;
 
-Admisiones admisiones;
+Admisiones admisiones; // Se crea un objeto de la clase Admisiones donde se
+                       // realizarán todas las operaciones del programa
 
 int main(){
-    bool continuar = true;
-    int opcion;
+    bool continuar = true; // Se crea un loop para que el usuario pueda realizar
+    int opcion;            // las operaciones que desee
     while (continuar == true){
+        // Se despliega el menú de las acciones que puede realizar el usuario
         cout << "\nELIGE UNA OPCION (1/2/3/4): \n\n" <<
         "1. Ver ejemplo \n" <<
         "2. Añadir prospecto\n" <<
@@ -37,17 +41,23 @@ int main(){
         "5. Ver prospectos con beca\n" <<
         "6. Salir\n" << endl;
         cin >> opcion;
+
+        // Se muestran prospectos creados de manera automática para la primera
+        // opción del menú
+        // SI SE BUSCA USAR EL CÓDIGO DE MANERA REAL, NO USAR ESTA OPCIÓN
         if (opcion == 1){
             admisiones.crear_prospectos_ejemplo();
             admisiones.mostrar_prospectos();
             admisiones.mostrar_prospectos("Profesional");
         }
+        // Opción donde se puede agregar prospectos de distintos tipos al arreglo
+        // del objeto admisiones donde se usa polimorfismo
         else if (opcion == 2){
             cout << "Ingrese el nombre del prospecto " << endl;
             cin.ignore();
             string nombre;
-            getline(cin, nombre);
-            cout << endl;
+            getline(cin, nombre); // se usa getline para poder leer la entrada de texto completa sin importar
+            cout << endl;         // el espacio que de otra forma causará disrupción en el programa
             int id = 0;
             cout << "Ingrese el tipo de prospecto (Profesional/Preparatoria/Posgrado):" << endl;
             string tipo_prospecto;
@@ -84,6 +94,7 @@ int main(){
                                                         puntaje_examen, promedio, tipo_posgrado);
             }
         }
+        // En la opción 3 es puede ver la información de los prospectos de manera general
         else if (opcion == 3){
             cout << "\nIngrese el tipo de prospecto de los que quiere" <<
             "ver la informacion (1/2/3/4)\n";
@@ -106,6 +117,7 @@ int main(){
                 cout << "\n\nOPCION INVALIDA\n";
             }
         }
+        // En la opción 4 se puede ver la información de los prospectos admitidos
         else if (opcion == 4){
             cout << "\nIngrese el tipo de prospecto de los que quiere ver la informacion (1/2/3/4)\n";
             cout << "\n1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
@@ -127,6 +139,7 @@ int main(){
                 cout << "\n\nOPCION INVALIDA\n";
             }
         }
+        // En la opción 5 se puede ver la información de los prospectos con beca
         else if (opcion == 5){
             cout << "\nIngrese el tipo de prospecto de los que quiere ver la informacion (1/2/3/4)\n";
             cout << "\n1. Profesional\n 2. Preparatoria\n 3. Posgrado\n 4. Todos";
@@ -148,10 +161,12 @@ int main(){
                 cout << "\n\nOPCION INVALIDA\n";
             }
         }
+        // Opción para darle fin a la ejecución del programa
         else if (opcion == 6){
             cout << "\nADIOS";
             continuar = false;
         }
+        // Opción en caso de que en el menú el usuario ingrese una opción inválida
         else{
             cout << "\n\nOPCION INVALIDA\n";
         }
